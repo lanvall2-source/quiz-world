@@ -139,9 +139,9 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
   };
 
   return (
-    <div className="flex flex-col gap-4 pb-12 animate-in fade-in duration-300">
+    <div className="flex flex-col gap-3.5 pb-36 animate-in fade-in duration-300">
       {/* 상단 퀴즈 헤더 & 진행률 바 */}
-      <div className="flex items-center justify-between gap-3 bg-white p-3.5 rounded-2xl border-2 border-amber-200 shadow-xs">
+      <div className="flex items-center justify-between gap-3 bg-white p-3 rounded-2xl border-2 border-amber-200 shadow-xs">
         <Link
           to="/"
           className="p-1.5 rounded-xl hover:bg-slate-100 text-slate-500 transition-colors"
@@ -185,8 +185,8 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
       />
 
       {/* 문제 질문 박스 */}
-      <div className="bg-white rounded-3xl border-3 border-amber-200 p-4 sm:p-5 shadow-card text-center">
-        <span className="inline-block bg-orange-100 text-orange-800 text-[11px] font-extrabold px-3 py-1 rounded-full mb-2">
+      <div className="bg-white rounded-2xl sm:rounded-3xl border-2 sm:border-3 border-amber-200 p-3.5 sm:p-4 shadow-card text-center">
+        <span className="inline-block bg-orange-100 text-orange-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full mb-1.5">
           Q{currentIndex + 1}. 알맞은 정답을 골라보세요!
         </span>
         <h2 className="text-base sm:text-lg font-black text-slate-800 leading-snug tracking-tight">
@@ -194,8 +194,8 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
         </h2>
       </div>
 
-      {/* 보기 4개 버튼 리스트 (최소 54px 큰 버튼) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {/* 보기 4개 버튼 리스트 (최소 52px 큰 버튼) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
         {currentQuestion.options.map((option, idx) => {
           const isSelected = selectedOption === option;
           const isThisCorrect = checkAnswer(currentQuestion, option);
@@ -204,7 +204,7 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
 
           if (isAnswered) {
             if (isThisCorrect) {
-              btnStyle = "bg-emerald-500 border-emerald-600 text-white shadow-kid ring-4 ring-emerald-200 scale-102";
+              btnStyle = "bg-emerald-500 border-emerald-600 text-white shadow-kid ring-4 ring-emerald-200 scale-101";
             } else if (isSelected && !isThisCorrect) {
               btnStyle = "bg-red-400 border-red-500 text-white shadow-kid-active opacity-85";
             } else {
@@ -217,10 +217,10 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
               key={`${currentQuestion.id}-opt-${idx}`}
               onClick={() => handleSelectOption(option)}
               disabled={isAnswered}
-              className={`w-full min-h-[56px] px-4 py-3 rounded-2xl border-3 font-extrabold text-sm sm:text-base flex items-center justify-between text-left transition-all btn-kid-touch cursor-pointer ${btnStyle}`}
+              className={`w-full min-h-[52px] sm:min-h-[56px] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border-3 font-extrabold text-sm sm:text-base flex items-center justify-between text-left transition-all btn-kid-touch cursor-pointer ${btnStyle}`}
             >
               <div className="flex items-center gap-2.5">
-                <span className="w-7 h-7 rounded-xl bg-black/10 flex items-center justify-center text-xs shrink-0">
+                <span className="w-7 h-7 rounded-xl bg-black/10 flex items-center justify-center text-xs shrink-0 font-black">
                   {idx + 1}
                 </span>
                 <span className="leading-snug">{option}</span>
@@ -237,37 +237,44 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
         })}
       </div>
 
-      {/* 정답/오답 해설 및 다음 버튼 (선택 후 노출) */}
+      {/* 정답/오답 하단 고정 액션 바 (스크롤을 내리지 않고 바로 누를 수 있는 Sticky Bottom Bar) */}
       {isAnswered && (
-        <div
-          className={`rounded-3xl border-3 p-4 sm:p-5 shadow-card animate-in slide-in-from-bottom-3 duration-300 ${
-            isCorrect
-              ? "bg-emerald-50 border-emerald-300 text-emerald-950"
-              : "bg-orange-50 border-orange-300 text-orange-950"
-          }`}
-        >
-          <div className="flex items-start gap-3">
-            <div className="text-3xl shrink-0 mt-0.5">
-              {isCorrect ? "🎉" : "💡"}
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-1.5 font-black text-sm sm:text-base">
-                <span>{isCorrect ? "정답이에요! 참 잘했어요!" : "아쉬워요! 정답을 확인해 볼까요?"}</span>
+        <div className="fixed bottom-0 left-0 right-0 z-50 p-3 sm:p-4 bg-white/95 backdrop-blur-md border-t-3 border-amber-300 shadow-[0_-10px_25px_rgba(0,0,0,0.12)] animate-in slide-in-from-bottom-4 duration-300">
+          <div className="max-w-md mx-auto flex flex-col gap-2">
+            <div className="flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+              <span className="text-2xl shrink-0 mt-0.5">
+                {isCorrect ? "🎉" : "💡"}
+              </span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span
+                    className={`text-[11px] font-black px-2 py-0.5 rounded-full ${
+                      isCorrect
+                        ? "bg-emerald-100 text-emerald-800"
+                        : "bg-orange-100 text-orange-800"
+                    }`}
+                  >
+                    {isCorrect ? "정답이에요!" : "정답 확인"}
+                  </span>
+                  <span className="text-xs sm:text-sm font-black text-slate-800">
+                    {currentQuestion.correctAnswer}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-600 mt-1 leading-snug line-clamp-2">
+                  {currentQuestion.explanation}
+                </p>
               </div>
-              <p className="text-xs sm:text-sm mt-1 leading-relaxed text-slate-700">
-                {currentQuestion.explanation}
-              </p>
             </div>
-          </div>
 
-          {/* 다음 문제 버튼 */}
-          <button
-            onClick={handleNext}
-            className="w-full btn-kid-touch bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-base rounded-2xl shadow-kid hover:shadow-kid-hover active:shadow-kid-active active:translate-y-1 flex items-center justify-center gap-2 transition-all mt-4"
-          >
-            <span>{isLastQuestion ? "결과 보러 가기" : "다음 문제로"}</span>
-            <ArrowRight className="w-5 h-5" />
-          </button>
+            <button
+              onClick={handleNext}
+              autoFocus
+              className="w-full h-12 sm:h-13 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-600 hover:to-amber-600 active:scale-[0.98] text-white font-black text-base sm:text-lg rounded-2xl shadow-kid hover:shadow-kid-hover flex items-center justify-center gap-2 transition-all cursor-pointer"
+            >
+              <span>{isLastQuestion ? "결과 보러 가기 🏆" : "다음 문제로"}</span>
+              <ArrowRight className="w-5 h-5 stroke-[3]" />
+            </button>
+          </div>
         </div>
       )}
     </div>

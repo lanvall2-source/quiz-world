@@ -49,7 +49,7 @@ export function QuizIllustration({
 
   return (
     <div
-      className={`relative w-full aspect-[16/10] sm:aspect-[2/1] max-h-64 rounded-3xl bg-gradient-to-b ${theme.bg} border-4 ${theme.border} flex items-center justify-center overflow-hidden shadow-card transition-all duration-300 ${className}`}
+      className={`relative w-full aspect-[16/9] sm:aspect-[2/1] max-h-52 sm:max-h-60 rounded-3xl bg-gradient-to-b ${theme.bg} border-3 sm:border-4 ${theme.border} flex items-center justify-center overflow-hidden shadow-card transition-all duration-300 ${className}`}
     >
       {/* 배경 장식 원형 파티클 */}
       <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/50 rounded-full blur-xs pointer-events-none" />
