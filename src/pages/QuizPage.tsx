@@ -139,29 +139,29 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
   };
 
   return (
-    <div className="flex flex-col gap-3.5 pb-36 animate-in fade-in duration-300">
-      {/* 상단 퀴즈 헤더 & 진행률 바 */}
-      <div className="flex items-center justify-between gap-3 bg-white p-3 rounded-2xl border-2 border-amber-200 shadow-xs">
+    <div className="flex flex-col gap-2 sm:gap-2.5 w-full animate-in fade-in duration-300">
+      {/* 상단 퀴즈 헤더 & 진행률 바 (세로 40px 컴팩트 디자인) */}
+      <div className="flex items-center justify-between gap-2.5 bg-white p-2 rounded-2xl border-2 border-amber-200 shadow-xs">
         <Link
           to="/"
-          className="p-1.5 rounded-xl hover:bg-slate-100 text-slate-500 transition-colors"
+          className="p-1 rounded-xl hover:bg-slate-100 text-slate-500 transition-colors"
           title="홈으로 나가기"
         >
           <ArrowLeft className="w-5 h-5" />
         </Link>
 
         {/* 진행률 텍스트 & 바 */}
-        <div className="flex-1 max-w-[200px]">
-          <div className="flex items-center justify-between text-xs font-extrabold text-slate-700 mb-1">
+        <div className="flex-1 max-w-[220px]">
+          <div className="flex items-center justify-between text-[11px] font-extrabold text-slate-700 mb-0.5">
             <span>문제 {currentIndex + 1} / {questions.length}</span>
             {combo >= 2 && (
-              <span className="flex items-center gap-1 text-orange-600 animate-bounce">
-                <Flame className="w-3.5 h-3.5 fill-orange-500" />
+              <span className="flex items-center gap-0.5 text-orange-600 animate-bounce text-[11px]">
+                <Flame className="w-3 h-3 fill-orange-500" />
                 <span>{combo}연속 정답!</span>
               </span>
             )}
           </div>
-          <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+          <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-300"
               style={{
@@ -172,30 +172,30 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
         </div>
 
         {/* 카테고리 아이콘 뱃지 */}
-        <span className="text-xl" role="img" aria-label={categoryMeta.name}>
+        <span className="text-lg" role="img" aria-label={categoryMeta.name}>
           {categoryMeta.emoji}
         </span>
       </div>
 
-      {/* 비주얼 일러스트 카드 */}
+      {/* 비주얼 일러스트 카드 (컴팩트 h-32/h-40) */}
       <QuizIllustration
         category={category}
         emoji={currentQuestion.emoji}
         title={currentQuestion.correctAnswer}
       />
 
-      {/* 문제 질문 박스 */}
-      <div className="bg-white rounded-2xl sm:rounded-3xl border-2 sm:border-3 border-amber-200 p-3.5 sm:p-4 shadow-card text-center">
-        <span className="inline-block bg-orange-100 text-orange-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full mb-1.5">
-          Q{currentIndex + 1}. 알맞은 정답을 골라보세요!
+      {/* 문제 질문 박스 (슬림 패딩 & 큰 폰트) */}
+      <div className="bg-white rounded-2xl border-2 border-amber-200 px-3 py-2 sm:py-2.5 shadow-card text-center">
+        <span className="inline-block bg-orange-100 text-orange-800 text-[10px] font-black px-2 py-0.5 rounded-full mb-1">
+          Q{currentIndex + 1}. 정답을 골라보세요!
         </span>
-        <h2 className="text-base sm:text-lg font-black text-slate-800 leading-snug tracking-tight">
+        <h2 className="text-sm sm:text-base font-black text-slate-800 leading-snug tracking-tight">
           {currentQuestion.question}
         </h2>
       </div>
 
-      {/* 보기 4개 버튼 리스트 (최소 52px 큰 버튼) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+      {/* 보기 4개 버튼 리스트: 모바일에서도 2x2 그리드로 한눈에 쏙! */}
+      <div className="grid grid-cols-2 gap-2">
         {currentQuestion.options.map((option, idx) => {
           const isSelected = selectedOption === option;
           const isThisCorrect = checkAnswer(currentQuestion, option);
@@ -204,7 +204,7 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
 
           if (isAnswered) {
             if (isThisCorrect) {
-              btnStyle = "bg-emerald-500 border-emerald-600 text-white shadow-kid ring-4 ring-emerald-200 scale-101";
+              btnStyle = "bg-emerald-500 border-emerald-600 text-white shadow-kid ring-3 ring-emerald-200 scale-101";
             } else if (isSelected && !isThisCorrect) {
               btnStyle = "bg-red-400 border-red-500 text-white shadow-kid-active opacity-85";
             } else {
@@ -217,64 +217,62 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
               key={`${currentQuestion.id}-opt-${idx}`}
               onClick={() => handleSelectOption(option)}
               disabled={isAnswered}
-              className={`w-full min-h-[52px] sm:min-h-[56px] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border-3 font-extrabold text-sm sm:text-base flex items-center justify-between text-left transition-all btn-kid-touch cursor-pointer ${btnStyle}`}
+              className={`w-full min-h-[48px] sm:min-h-[52px] px-2.5 py-2 rounded-xl sm:rounded-2xl border-2 sm:border-3 font-extrabold text-xs sm:text-sm flex items-center justify-between text-left transition-all btn-kid-touch cursor-pointer ${btnStyle}`}
             >
-              <div className="flex items-center gap-2.5">
-                <span className="w-7 h-7 rounded-xl bg-black/10 flex items-center justify-center text-xs shrink-0 font-black">
+              <div className="flex items-center gap-1.5 min-w-0">
+                <span className="w-5 h-5 rounded-lg bg-black/10 flex items-center justify-center text-[10px] font-black shrink-0">
                   {idx + 1}
                 </span>
-                <span className="leading-snug">{option}</span>
+                <span className="leading-tight truncate">{option}</span>
               </div>
 
               {isAnswered && isThisCorrect && (
-                <CheckCircle2 className="w-6 h-6 text-white shrink-0 animate-pop" />
+                <CheckCircle2 className="w-4 h-4 text-white shrink-0 animate-pop ml-1" />
               )}
               {isAnswered && isSelected && !isThisCorrect && (
-                <XCircle className="w-6 h-6 text-white shrink-0 animate-pop" />
+                <XCircle className="w-4 h-4 text-white shrink-0 animate-pop ml-1" />
               )}
             </button>
           );
         })}
       </div>
 
-      {/* 정답/오답 하단 고정 액션 바 (스크롤을 내리지 않고 바로 누를 수 있는 Sticky Bottom Bar) */}
+      {/* 정답/오답 피드백 & 다음 버튼 (스크롤 없이 보기 바로 아래에 쏙 들어오는 인라인 카드) */}
       {isAnswered && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 p-3 sm:p-4 bg-white/95 backdrop-blur-md border-t-3 border-amber-300 shadow-[0_-10px_25px_rgba(0,0,0,0.12)] animate-in slide-in-from-bottom-4 duration-300">
-          <div className="max-w-md mx-auto flex flex-col gap-2">
-            <div className="flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-              <span className="text-2xl shrink-0 mt-0.5">
-                {isCorrect ? "🎉" : "💡"}
-              </span>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  <span
-                    className={`text-[11px] font-black px-2 py-0.5 rounded-full ${
-                      isCorrect
-                        ? "bg-emerald-100 text-emerald-800"
-                        : "bg-orange-100 text-orange-800"
-                    }`}
-                  >
-                    {isCorrect ? "정답이에요!" : "정답 확인"}
-                  </span>
-                  <span className="text-xs sm:text-sm font-black text-slate-800">
-                    {currentQuestion.correctAnswer}
-                  </span>
-                </div>
-                <p className="text-xs text-slate-600 mt-1 leading-snug line-clamp-2">
-                  {currentQuestion.explanation}
-                </p>
+        <div className="flex flex-col gap-1.5 animate-in slide-in-from-bottom-2 duration-200">
+          <div className="flex items-start gap-2 bg-white/95 p-2 rounded-xl border-2 border-amber-200 shadow-xs">
+            <span className="text-xl shrink-0 mt-0.5">
+              {isCorrect ? "🎉" : "💡"}
+            </span>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span
+                  className={`text-[10px] font-black px-1.5 py-0.2 rounded-full ${
+                    isCorrect
+                      ? "bg-emerald-100 text-emerald-800"
+                      : "bg-orange-100 text-orange-800"
+                  }`}
+                >
+                  {isCorrect ? "정답이에요!" : "정답"}
+                </span>
+                <span className="text-xs font-black text-slate-800">
+                  {currentQuestion.correctAnswer}
+                </span>
               </div>
+              <p className="text-[11px] text-slate-600 mt-0.5 leading-tight line-clamp-2">
+                {currentQuestion.explanation}
+              </p>
             </div>
-
-            <button
-              onClick={handleNext}
-              autoFocus
-              className="w-full h-12 sm:h-13 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-600 hover:to-amber-600 active:scale-[0.98] text-white font-black text-base sm:text-lg rounded-2xl shadow-kid hover:shadow-kid-hover flex items-center justify-center gap-2 transition-all cursor-pointer"
-            >
-              <span>{isLastQuestion ? "결과 보러 가기 🏆" : "다음 문제로"}</span>
-              <ArrowRight className="w-5 h-5 stroke-[3]" />
-            </button>
           </div>
+
+          <button
+            onClick={handleNext}
+            autoFocus
+            className="w-full h-11 sm:h-12 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-600 hover:to-amber-600 active:scale-[0.98] text-white font-black text-sm sm:text-base rounded-xl sm:rounded-2xl shadow-kid hover:shadow-kid-hover flex items-center justify-center gap-2 transition-all cursor-pointer"
+          >
+            <span>{isLastQuestion ? "결과 보러 가기 🏆" : "다음 문제로"}</span>
+            <ArrowRight className="w-4 h-4 stroke-[3]" />
+          </button>
         </div>
       )}
     </div>
