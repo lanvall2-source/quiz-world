@@ -147,23 +147,23 @@ export function AnimalIllustration({ animalName, className = "" }: Props) {
   const info = getAnimalInfo();
 
   return (
-    <div className={`relative w-full h-full flex flex-col items-center justify-center p-3 select-none ${className}`}>
+    <div className={`relative w-full h-full flex flex-col items-center justify-between p-1.5 pb-2 select-none ${className}`}>
       {/* 서식지 뱃지 */}
-      <div className="absolute top-2 right-2 bg-black/40 backdrop-blur-xs text-white text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+      <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-xs text-white text-[9px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs z-10 max-w-[55%] truncate">
         <span>{info.habitat}</span>
       </div>
 
-      {/* 중앙 초대형 비주얼 그래픽 */}
-      <div className="flex items-center justify-center my-auto transform hover:scale-110 transition-transform duration-300">
-        <span className={`text-7xl sm:text-8xl drop-shadow-lg ${info.scale}`}>
+      {/* 중앙 비주얼 그래픽 */}
+      <div className="flex items-center justify-center my-auto pt-2 pb-1 transform hover:scale-110 transition-transform duration-300">
+        <span className="text-5xl sm:text-6xl drop-shadow-md">
           {info.emoji}
         </span>
       </div>
 
-      {/* 하단 특징 힌트 리본 */}
-      <div className="mt-auto bg-white/95 border border-emerald-300/80 px-3 py-1 rounded-full shadow-xs flex items-center gap-1.5">
-        <span className="text-emerald-600 text-xs">🌿</span>
-        <span className="text-slate-800 text-xs font-extrabold tracking-tight">
+      {/* 하단 특징 힌트 리본 (글자 잘림 방지) */}
+      <div className="bg-white/95 border border-emerald-300/80 px-2.5 py-0.5 rounded-full shadow-xs flex items-center justify-center gap-1 z-10 max-w-[94%]">
+        <span className="text-emerald-600 text-[10px] shrink-0">🌿</span>
+        <span className="text-slate-800 text-[10px] sm:text-[11px] font-black tracking-tight text-center break-keep-all leading-tight">
           {info.badge}
         </span>
       </div>

@@ -49,16 +49,16 @@ export function QuizIllustration({
 
   return (
     <div
-      className={`relative w-full h-32 sm:h-40 rounded-2xl sm:rounded-3xl bg-gradient-to-b ${theme.bg} border-2 sm:border-3 ${theme.border} flex items-center justify-center overflow-hidden shadow-card transition-all duration-300 ${className}`}
+      className={`relative w-full h-34 sm:h-42 rounded-2xl sm:rounded-3xl bg-gradient-to-b ${theme.bg} border-2 sm:border-3 ${theme.border} flex items-center justify-center overflow-hidden shadow-card transition-all duration-300 ${className}`}
     >
       {/* 배경 장식 원형 파티클 */}
       <div className="absolute -top-8 -right-8 w-28 h-28 bg-white/50 rounded-full blur-xs pointer-events-none" />
       <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-white/50 rounded-full blur-xs pointer-events-none" />
 
       {/* 카테고리 좌상단 뱃지 */}
-      <div className="absolute top-2 left-2.5 z-20">
+      <div className="absolute top-2 left-2 z-20">
         <span
-          className={`text-[10px] sm:text-xs font-black text-white px-2.5 py-0.5 rounded-full shadow-xs ${theme.tagBg}`}
+          className={`text-[9px] sm:text-[11px] font-black text-white px-2 py-0.5 rounded-full shadow-xs ${theme.tagBg}`}
         >
           {theme.tagText}
         </span>
@@ -66,20 +66,20 @@ export function QuizIllustration({
 
       {/* 1. 나라 맞히기: 실제 고해상도 국기 SVG 렌더링 */}
       {category === "country" && (
-        <div className="relative z-10 flex flex-col items-center justify-center w-full h-full p-2 pt-5">
-          <div className="relative group">
+        <div className="relative z-10 flex flex-col items-center justify-between w-full h-full p-2 pt-3 pb-2">
+          <div className="relative group my-auto">
             {/* 국기 깃대 느낌의 카드 프레임 */}
-            <div className="w-32 sm:w-40 aspect-[3/2] rounded-xl shadow-kid border-2 border-slate-700/80 overflow-hidden transform group-hover:scale-105 transition-transform duration-300">
+            <div className="w-28 sm:w-36 aspect-[3/2] rounded-xl shadow-kid border-2 border-slate-700/80 overflow-hidden transform group-hover:scale-105 transition-transform duration-300">
               <CountryFlag countryName={title} className="w-full h-full object-cover" />
             </div>
             {/* 펄럭이는 효과 광택 */}
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent pointer-events-none rounded-xl" />
           </div>
 
-          {/* 하단 힌트 캡션 */}
-          <div className="mt-1 bg-white/90 border border-blue-200 px-2.5 py-0.5 rounded-full shadow-2xs">
-            <span className="text-blue-900 text-[10px] sm:text-xs font-black tracking-tight">
-              🚩 이 국기의 나라는 어디일까요?
+          {/* 하단 힌트 캡션 (글자 잘림 방지) */}
+          <div className="bg-white/95 border border-blue-200 px-2.5 py-0.5 rounded-full shadow-2xs max-w-[94%]">
+            <span className="text-blue-900 text-[10px] sm:text-[11px] font-black tracking-tight text-center break-keep-all leading-tight">
+              🚩 이 국기를 가진 나라는 어디일까요?
             </span>
           </div>
         </div>
@@ -87,12 +87,12 @@ export function QuizIllustration({
 
       {/* 2. 공룡 맞히기: 서식지 뱃지 & 핵심 신체 특징 그래픽 */}
       {category === "dinosaur" && (
-        <DinosaurIllustration dinoName={title} className="z-10 pt-4" />
+        <DinosaurIllustration dinoName={title} className="z-10" />
       )}
 
       {/* 3. 동물 맞히기: 서식지 뱃지 & 대표 외형 특징 그래픽 */}
       {category === "animal" && (
-        <AnimalIllustration animalName={title} className="z-10 pt-4" />
+        <AnimalIllustration animalName={title} className="z-10" />
       )}
     </div>
   );

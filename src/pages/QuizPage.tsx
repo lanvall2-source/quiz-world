@@ -184,17 +184,17 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
         title={currentQuestion.correctAnswer}
       />
 
-      {/* 문제 질문 박스 (슬림 패딩 & 큰 폰트) */}
+      {/* 문제 질문 박스 (슬림 패딩 & 큰 폰트 & break-keep-all) */}
       <div className="bg-white rounded-2xl border-2 border-amber-200 px-3 py-2 sm:py-2.5 shadow-card text-center">
         <span className="inline-block bg-orange-100 text-orange-800 text-[10px] font-black px-2 py-0.5 rounded-full mb-1">
           Q{currentIndex + 1}. 정답을 골라보세요!
         </span>
-        <h2 className="text-sm sm:text-base font-black text-slate-800 leading-snug tracking-tight">
+        <h2 className="text-sm sm:text-base font-black text-slate-800 leading-snug tracking-tight break-keep-all">
           {currentQuestion.question}
         </h2>
       </div>
 
-      {/* 보기 4개 버튼 리스트: 모바일에서도 2x2 그리드로 한눈에 쏙! */}
+      {/* 보기 4개 버튼 리스트: 글자 잘림 없는 2x2 그리드 */}
       <div className="grid grid-cols-2 gap-2">
         {currentQuestion.options.map((option, idx) => {
           const isSelected = selectedOption === option;
@@ -217,37 +217,39 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
               key={`${currentQuestion.id}-opt-${idx}`}
               onClick={() => handleSelectOption(option)}
               disabled={isAnswered}
-              className={`w-full min-h-[48px] sm:min-h-[52px] px-2.5 py-2 rounded-xl sm:rounded-2xl border-2 sm:border-3 font-extrabold text-xs sm:text-sm flex items-center justify-between text-left transition-all btn-kid-touch cursor-pointer ${btnStyle}`}
+              className={`w-full min-h-[50px] sm:min-h-[54px] px-2 py-1.5 rounded-xl sm:rounded-2xl border-2 sm:border-3 font-extrabold flex items-center justify-between text-left transition-all btn-kid-touch cursor-pointer ${btnStyle}`}
             >
-              <div className="flex items-center gap-1.5 min-w-0">
+              <div className="flex items-center gap-1.5 flex-1 min-w-0 pr-1">
                 <span className="w-5 h-5 rounded-lg bg-black/10 flex items-center justify-center text-[10px] font-black shrink-0">
                   {idx + 1}
                 </span>
-                <span className="leading-tight truncate">{option}</span>
+                <span className="text-[11px] sm:text-xs font-black leading-tight break-keep-all flex-1 text-slate-800 [button[disabled]_&]:text-inherit">
+                  {option}
+                </span>
               </div>
 
               {isAnswered && isThisCorrect && (
-                <CheckCircle2 className="w-4 h-4 text-white shrink-0 animate-pop ml-1" />
+                <CheckCircle2 className="w-4 h-4 text-white shrink-0 animate-pop" />
               )}
               {isAnswered && isSelected && !isThisCorrect && (
-                <XCircle className="w-4 h-4 text-white shrink-0 animate-pop ml-1" />
+                <XCircle className="w-4 h-4 text-white shrink-0 animate-pop" />
               )}
             </button>
           );
         })}
       </div>
 
-      {/* 정답/오답 피드백 & 다음 버튼 (스크롤 없이 보기 바로 아래에 쏙 들어오는 인라인 카드) */}
+      {/* 정답/오답 피드백 & 다음 버튼 (글자 잘림 없이 전체 해설 노출) */}
       {isAnswered && (
         <div className="flex flex-col gap-1.5 animate-in slide-in-from-bottom-2 duration-200">
-          <div className="flex items-start gap-2 bg-white/95 p-2 rounded-xl border-2 border-amber-200 shadow-xs">
+          <div className="flex items-start gap-2 bg-white/95 p-2.5 rounded-xl border-2 border-amber-200 shadow-xs">
             <span className="text-xl shrink-0 mt-0.5">
               {isCorrect ? "🎉" : "💡"}
             </span>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5 flex-wrap">
                 <span
-                  className={`text-[10px] font-black px-1.5 py-0.2 rounded-full ${
+                  className={`text-[10px] font-black px-1.5 py-0.5 rounded-full ${
                     isCorrect
                       ? "bg-emerald-100 text-emerald-800"
                       : "bg-orange-100 text-orange-800"
@@ -255,11 +257,11 @@ export function QuizPage({ stats, settings, onStatsUpdate }: Props) {
                 >
                   {isCorrect ? "정답이에요!" : "정답"}
                 </span>
-                <span className="text-xs font-black text-slate-800">
+                <span className="text-xs font-black text-slate-800 break-keep-all">
                   {currentQuestion.correctAnswer}
                 </span>
               </div>
-              <p className="text-[11px] text-slate-600 mt-0.5 leading-tight line-clamp-2">
+              <p className="text-[11px] text-slate-700 mt-1 leading-snug break-keep-all">
                 {currentQuestion.explanation}
               </p>
             </div>

@@ -11,7 +11,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 1. 티라노사우루스 (T-Rex)
     if (dinoName.includes("티라노")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           {/* 꼬리와 몸통 */}
           <path d="M 30,130 Q 70,80 120,70 L 140,40 Q 170,30 185,50 L 190,75 L 165,85 L 155,75 Q 140,110 110,135 Q 70,145 30,130 Z" fill="#E05638" />
           {/* 아래턱 & 입안 날카로운 이빨 */}
@@ -36,7 +36,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 2. 트리케라톱스
     if (dinoName.includes("트리케라")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           {/* 몸통 & 꼬리 */}
           <ellipse cx="90" cy="100" rx="60" ry="35" fill="#588157" />
           <path d="M 35,100 Q 15,110 5,125 Q 25,115 45,112 Z" fill="#588157" />
@@ -63,7 +63,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 3. 브라키오사우루스
     if (dinoName.includes("브라키오")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           {/* 기나긴 목 & 머리 */}
           <path d="M 100,110 Q 130,70 145,25 Q 155,10 165,20 Q 170,30 155,40 Q 140,85 125,115 Z" fill="#40916C" />
           {/* 눈 */}
@@ -87,7 +87,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 4. 스테고사우루스
     if (dinoName.includes("스테고")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           {/* 등 위의 오각형 골판들 */}
           <polygon points="60,85 70,55 80,85" fill="#D97706" />
           <polygon points="80,80 95,45 110,80" fill="#F59E0B" />
@@ -132,7 +132,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 6. 안킬로사우루스 (갑옷 & 꼬리곤봉)
     if (dinoName.includes("안킬로")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           {/* 단단한 갑옷 등껍질 */}
           <path d="M 60,110 Q 105,65 150,110 Z" fill="#78716C" stroke="#44403C" strokeWidth="2" />
           {/* 등갑 뿔 돌기들 */}
@@ -156,7 +156,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 7. 벨로키랍토르
     if (dinoName.includes("벨로키")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           {/* 긴 꼬리 & 날렵한 몸통 */}
           <path d="M 20,70 Q 60,105 105,95 L 145,65 L 175,60 L 165,75 L 140,80 Q 110,120 70,110 Z" fill="#D97706" />
           <circle cx="155" cy="67" r="3" fill="#000000" />
@@ -173,7 +173,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 8. 파키케팔로사우루스 (박치기)
     if (dinoName.includes("파키케")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           {/* 몸통 & 꼬리 */}
           <ellipse cx="90" cy="110" rx="45" ry="25" fill="#A16207" />
           <path d="M 50,110 L 15,125" stroke="#A16207" strokeWidth="10" strokeLinecap="round" />
@@ -215,7 +215,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 10. 파라사우롤로푸스 (소리 볏)
     if (dinoName.includes("파라사우")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           {/* 몸통 */}
           <ellipse cx="95" cy="115" rx="45" ry="25" fill="#7C3AED" />
           <path d="M 55,115 L 20,110" stroke="#7C3AED" strokeWidth="10" strokeLinecap="round" />
@@ -233,7 +233,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 11. 알로사우루스 (쥐라기 맹수 & 눈 위의 붉은 볏)
     if (dinoName.includes("알로사우")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           <path d="M 35,130 Q 75,80 120,75 L 145,45 Q 170,35 185,55 L 180,80 L 155,80 Q 135,115 110,135 Z" fill="#4B5563" />
           {/* 눈 위의 붉은 볏 2개 */}
           <polygon points="148,42 155,30 162,44" fill="#EF4444" />
@@ -250,7 +250,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 12. 카르노타우루스 (황소 뿔 육식공룡)
     if (dinoName.includes("카르노")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="100" cy="95" rx="50" ry="28" fill="#B91C1C" />
           <path d="M 45,100 L 15,115" stroke="#B91C1C" strokeWidth="12" strokeLinecap="round" />
           {/* 머리와 황소 뿔 2개 */}
@@ -269,7 +269,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 13. 테리지노사우루스 (70cm 거대 낫 손톱)
     if (dinoName.includes("테리지노")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="90" cy="100" rx="42" ry="32" fill="#D97706" />
           <path d="M 115,85 Q 135,50 148,35 L 160,42 Q 140,75 125,95 Z" fill="#B45309" />
           <circle cx="152" cy="38" r="2.5" fill="#000000" />
@@ -289,7 +289,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 14. 모사사우루스 (바다의 폭군)
     if (dinoName.includes("모사사우")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           {/* 날렵한 수중 몸체 */}
           <path d="M 20,95 Q 70,75 120,75 L 180,95 L 125,110 Q 70,110 20,95 Z" fill="#0284C7" />
           {/* 거대한 꼬리 지느러미 */}
@@ -308,7 +308,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 15. 플레시오사우루스 (긴 목 장경룡)
     if (dinoName.includes("플레시오")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           {/* 둥근 몸통과 꼬리 */}
           <ellipse cx="90" cy="110" rx="45" ry="22" fill="#0D9488" />
           <path d="M 45,110 L 15,115" stroke="#0D9488" strokeWidth="8" strokeLinecap="round" />
@@ -325,7 +325,7 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     // 16. 갈리미무스 (타조 공룡)
     if (dinoName.includes("갈리미")) {
       return (
-        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 160" className="w-28 h-20 sm:w-36 sm:h-24 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="85" cy="85" rx="35" ry="20" fill="#EAB308" />
           <path d="M 50,85 L 15,90" stroke="#EAB308" strokeWidth="6" strokeLinecap="round" />
           <path d="M 105,75 Q 125,45 135,30 L 148,32 Q 135,55 115,80 Z" fill="#CA8A04" />
@@ -386,21 +386,21 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
   };
 
   return (
-    <div className={`relative w-full h-full flex flex-col items-center justify-between p-2 select-none ${className}`}>
+    <div className={`relative w-full h-full flex flex-col items-center justify-between p-1.5 pb-2 select-none ${className}`}>
       {/* 우상단 서식지 뱃지 */}
-      <div className="absolute top-2 right-2 bg-black/50 backdrop-blur-xs text-white text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs z-10">
+      <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-xs text-white text-[9px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs z-10 max-w-[55%] truncate">
         <span>{getDinoHabitat()}</span>
       </div>
 
       {/* 중앙 정통 공룡 벡터 일러스트 SVG */}
-      <div className="flex items-center justify-center my-auto transform hover:scale-105 transition-transform duration-300">
+      <div className="flex items-center justify-center my-auto pt-3 pb-1 transform hover:scale-105 transition-transform duration-300">
         {renderDinoSvg()}
       </div>
 
-      {/* 하단 핵심 특징 리본 */}
-      <div className="bg-white/95 border border-amber-300/80 px-3 py-1 rounded-full shadow-xs flex items-center gap-1.5 z-10">
-        <span className="text-amber-600 text-xs">✨</span>
-        <span className="text-slate-800 text-xs font-extrabold tracking-tight">
+      {/* 하단 핵심 특징 리본 (글자 잘림 방지 break-keep-all 적용) */}
+      <div className="bg-white/95 border border-amber-300/80 px-2.5 py-0.5 rounded-full shadow-xs flex items-center justify-center gap-1 z-10 max-w-[94%]">
+        <span className="text-amber-600 text-[10px] shrink-0">✨</span>
+        <span className="text-slate-800 text-[10px] sm:text-[11px] font-black tracking-tight text-center break-keep-all leading-tight">
           {getDinoFeature()}
         </span>
       </div>

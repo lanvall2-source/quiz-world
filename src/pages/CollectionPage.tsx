@@ -114,13 +114,13 @@ export function CollectionPage({ stats }: Props) {
                 )}
               </div>
 
-              {/* 카드 이름 */}
-              <h3 className="font-extrabold text-sm text-slate-800 line-clamp-1">
+              {/* 카드 이름 (글자 잘림 방지 break-keep-all) */}
+              <h3 className="font-extrabold text-xs sm:text-sm text-slate-800 break-keep-all leading-tight min-h-[28px] flex items-center justify-center">
                 {isUnlocked ? q.correctAnswer : "잠긴 카드"}
               </h3>
 
-              <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-1">
-                {isUnlocked ? "눌러서 자세히 보기" : "퀴즈를 풀어보세요"}
+              <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 line-clamp-1">
+                {isUnlocked ? "눌러서 보기" : "퀴즈를 풀어보세요"}
               </p>
 
               {/* 획득 뱃지 */}
