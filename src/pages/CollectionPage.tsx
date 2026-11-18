@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Lock, Sparkles, Trophy, Award, X, ChevronRight } from "lucide-react";
 import { CATEGORIES } from "@/data";
+import { CountryFlag } from "@/components/illustrations/CountryFlag";
 import type { QuizCategory, QuizQuestion, UserStats } from "@/types";
 
 interface Props {
@@ -92,16 +93,22 @@ export function CollectionPage({ stats }: Props) {
             >
               {/* 카드 이미지 영역 */}
               <div
-                className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-2.5 shadow-xs ${
+                className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-2.5 shadow-xs overflow-hidden ${
                   isUnlocked
                     ? "bg-gradient-to-tr from-amber-100 to-orange-100"
                     : "bg-slate-200 text-slate-400"
                 }`}
               >
                 {isUnlocked ? (
-                  <span role="img" aria-label={q.correctAnswer}>
-                    {q.emoji || "⭐"}
-                  </span>
+                  q.category === "country" ? (
+                    <div className="w-12 aspect-[3/2] rounded shadow-xs overflow-hidden border border-slate-300">
+                      <CountryFlag countryName={q.correctAnswer} className="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <span role="img" aria-label={q.correctAnswer}>
+                      {q.emoji || "⭐"}
+                    </span>
+                  )
                 ) : (
                   <Lock className="w-6 h-6 text-slate-400" />
                 )}
@@ -139,10 +146,16 @@ export function CollectionPage({ stats }: Props) {
               <X className="w-5 h-5" />
             </button>
 
-            <div className="w-24 h-24 mx-auto rounded-3xl bg-gradient-to-tr from-amber-100 to-orange-100 flex items-center justify-center text-6xl shadow-kid mb-4">
-              <span role="img" aria-label={selectedCard.correctAnswer}>
-                {selectedCard.emoji}
-              </span>
+            <div className="w-28 h-24 mx-auto rounded-3xl bg-gradient-to-tr from-amber-100 to-orange-100 flex items-center justify-center text-6xl shadow-kid mb-4 overflow-hidden p-2">
+              {selectedCard.category === "country" ? (
+                <div className="w-24 aspect-[3/2] rounded-xl shadow-md overflow-hidden border-2 border-slate-700">
+                  <CountryFlag countryName={selectedCard.correctAnswer} className="w-full h-full object-cover" />
+                </div>
+              ) : (
+                <span role="img" aria-label={selectedCard.correctAnswer}>
+                  {selectedCard.emoji}
+                </span>
+              )}
             </div>
 
             <span className="text-xs font-bold text-orange-600 bg-orange-100 px-3 py-1 rounded-full">
