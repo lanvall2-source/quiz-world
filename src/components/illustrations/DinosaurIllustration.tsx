@@ -230,6 +230,113 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
       );
     }
 
+    // 11. 알로사우루스 (쥐라기 맹수 & 눈 위의 붉은 볏)
+    if (dinoName.includes("알로사우")) {
+      return (
+        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 35,130 Q 75,80 120,75 L 145,45 Q 170,35 185,55 L 180,80 L 155,80 Q 135,115 110,135 Z" fill="#4B5563" />
+          {/* 눈 위의 붉은 볏 2개 */}
+          <polygon points="148,42 155,30 162,44" fill="#EF4444" />
+          <circle cx="158" cy="52" r="3.5" fill="#FCD34D" />
+          <circle cx="159" cy="52" r="1.8" fill="#000000" />
+          <path d="M 160,70 L 180,72 L 165,82" stroke="#EF4444" strokeWidth="2" fill="none" />
+          {/* 다리와 꼬리 */}
+          <rect x="95" y="115" width="16" height="30" rx="5" fill="#374151" />
+          <rect x="115" y="110" width="16" height="32" rx="5" fill="#1F2937" />
+        </svg>
+      );
+    }
+
+    // 12. 카르노타우루스 (황소 뿔 육식공룡)
+    if (dinoName.includes("카르노")) {
+      return (
+        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="95" rx="50" ry="28" fill="#B91C1C" />
+          <path d="M 45,100 L 15,115" stroke="#B91C1C" strokeWidth="12" strokeLinecap="round" />
+          {/* 머리와 황소 뿔 2개 */}
+          <path d="M 135,85 L 165,65 L 185,80 L 155,105 Z" fill="#991B1B" />
+          <polygon points="152,65 160,42 168,66" fill="#FDE047" stroke="#78350F" strokeWidth="1.5" />
+          <polygon points="160,65 170,44 175,68" fill="#FDE047" stroke="#78350F" strokeWidth="1.5" />
+          <circle cx="165" cy="74" r="3" fill="#FFFFFF" />
+          <circle cx="166" cy="74" r="1.5" fill="#000000" />
+          {/* 다리 */}
+          <rect x="85" y="115" width="15" height="30" rx="5" fill="#7F1D1D" />
+          <rect x="110" y="115" width="15" height="30" rx="5" fill="#991B1B" />
+        </svg>
+      );
+    }
+
+    // 13. 테리지노사우루스 (70cm 거대 낫 손톱)
+    if (dinoName.includes("테리지노")) {
+      return (
+        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="90" cy="100" rx="42" ry="32" fill="#D97706" />
+          <path d="M 115,85 Q 135,50 148,35 L 160,42 Q 140,75 125,95 Z" fill="#B45309" />
+          <circle cx="152" cy="38" r="2.5" fill="#000000" />
+          {/* 거대한 3개의 낫 손톱 */}
+          <g stroke="#F8FAFC" strokeWidth="3" strokeLinecap="round" fill="none">
+            <path d="M 125,95 Q 155,115 165,95" />
+            <path d="M 128,100 Q 160,122 170,102" />
+            <path d="M 125,105 Q 155,130 165,112" />
+          </g>
+          {/* 다리 */}
+          <rect x="75" y="125" width="16" height="25" rx="5" fill="#92400E" />
+          <rect x="100" y="125" width="16" height="25" rx="5" fill="#78350F" />
+        </svg>
+      );
+    }
+
+    // 14. 모사사우루스 (바다의 폭군)
+    if (dinoName.includes("모사사우")) {
+      return (
+        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+          {/* 날렵한 수중 몸체 */}
+          <path d="M 20,95 Q 70,75 120,75 L 180,95 L 125,110 Q 70,110 20,95 Z" fill="#0284C7" />
+          {/* 거대한 꼬리 지느러미 */}
+          <polygon points="25,95 5,65 15,95 5,125" fill="#0369A1" />
+          {/* 물갈퀴 지느러미 2개 */}
+          <polygon points="90,105 110,135 125,105" fill="#0369A1" />
+          <polygon points="60,100 70,125 80,100" fill="#0369A1" />
+          {/* 날카로운 이빨과 눈 */}
+          <circle cx="160" cy="90" r="3.5" fill="#FDE047" />
+          <circle cx="161" cy="90" r="2" fill="#000000" />
+          <path d="M 145,95 L 175,95" stroke="#FFFFFF" strokeWidth="2" strokeDasharray="3,3" />
+        </svg>
+      );
+    }
+
+    // 15. 플레시오사우루스 (긴 목 장경룡)
+    if (dinoName.includes("플레시오")) {
+      return (
+        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+          {/* 둥근 몸통과 꼬리 */}
+          <ellipse cx="90" cy="110" rx="45" ry="22" fill="#0D9488" />
+          <path d="M 45,110 L 15,115" stroke="#0D9488" strokeWidth="8" strokeLinecap="round" />
+          {/* 긴 S자형 목과 작은 머리 */}
+          <path d="M 120,105 Q 145,75 140,45 Q 138,25 155,20 Q 165,22 160,35 Q 155,55 135,105 Z" fill="#14B8A6" />
+          <circle cx="156" cy="24" r="2.5" fill="#000000" />
+          {/* 4개의 날개 지느러미 */}
+          <ellipse cx="65" cy="125" rx="20" ry="8" transform="rotate(30 65 125)" fill="#0F766E" />
+          <ellipse cx="115" cy="125" rx="22" ry="8" transform="rotate(30 115 125)" fill="#0F766E" />
+        </svg>
+      );
+    }
+
+    // 16. 갈리미무스 (타조 공룡)
+    if (dinoName.includes("갈리미")) {
+      return (
+        <svg viewBox="0 0 200 160" className="w-40 h-32 sm:w-48 sm:h-36 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="85" cy="85" rx="35" ry="20" fill="#EAB308" />
+          <path d="M 50,85 L 15,90" stroke="#EAB308" strokeWidth="6" strokeLinecap="round" />
+          <path d="M 105,75 Q 125,45 135,30 L 148,32 Q 135,55 115,80 Z" fill="#CA8A04" />
+          <circle cx="140" cy="32" r="2" fill="#000000" />
+          {/* 길고 날씬한 타조 다리 */}
+          <line x1="75" y1="100" x2="70" y2="145" stroke="#A16207" strokeWidth="4" />
+          <line x1="95" y1="100" x2="95" y2="145" stroke="#854D0E" strokeWidth="4" />
+        </svg>
+      );
+    }
+
     // 기본 공룡 실루엣
     return (
       <svg viewBox="0 0 200 160" className="w-40 h-32 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
@@ -249,6 +356,12 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     if (dinoName.includes("파키케")) return "산악 바위 지대 ⛰️";
     if (dinoName.includes("스피노")) return "거대한 고대 늪지대 🌊";
     if (dinoName.includes("파라사우")) return "호숫가 갈대밭 🌾";
+    if (dinoName.includes("알로사우")) return "쥐라기 숲속 사냥터 🌲";
+    if (dinoName.includes("카르노")) return "남아메리카 평원 🌾";
+    if (dinoName.includes("테리지노")) return "고비 사막 덤불숲 🌵";
+    if (dinoName.includes("모사사우")) return "깊고 푸른 바다 🌊";
+    if (dinoName.includes("플레시오")) return "고대 산호초 바다 🪸";
+    if (dinoName.includes("갈리미")) return "호숫가 들판 🏃";
     return "원시 자연 🌿";
   };
 
@@ -263,6 +376,12 @@ export function DinosaurIllustration({ dinoName, className = "" }: Props) {
     if (dinoName.includes("파키케")) return "두껍고 단단한 박치기 머리뼈";
     if (dinoName.includes("스피노")) return "등 위의 커다란 부채 모양 돛";
     if (dinoName.includes("파라사우")) return "머리 뒤로 뻗은 나팔 소리 볏";
+    if (dinoName.includes("알로사우")) return "눈 위의 붉은 볏 & 날카로운 발톱";
+    if (dinoName.includes("카르노")) return "머리에 솟은 2개의 황소 뿔";
+    if (dinoName.includes("테리지노")) return "70cm 세상에서 가장 긴 낫 손톱";
+    if (dinoName.includes("모사사우")) return "바다의 최강 지배자 수중 폭군";
+    if (dinoName.includes("플레시오")) return "뱀처럼 긴 목 & 4개의 지느러미";
+    if (dinoName.includes("갈리미")) return "시속 60km로 달리는 타조 공룡";
     return "신비한 공룡의 특징";
   };
 

@@ -87,6 +87,54 @@ export function AnimalIllustration({ animalName, className = "" }: Props) {
         scale: "scale-120",
       };
     }
+    if (animalName.includes("코끼리")) {
+      return {
+        emoji: "🐘",
+        badge: "손처럼 자유자재로 움직이는 긴 코",
+        habitat: "아프리카 & 아시아 초원 🌾",
+        scale: "scale-120",
+      };
+    }
+    if (animalName.includes("호랑이")) {
+      return {
+        emoji: "🐯",
+        badge: "용맹한 줄무늬와 숲속의 왕",
+        habitat: "깊은 산림과 정글 🌲",
+        scale: "scale-120",
+      };
+    }
+    if (animalName.includes("돌고래")) {
+      return {
+        emoji: "🐬",
+        badge: "초음파로 대화하는 똑똑한 바다 친구",
+        habitat: "맑고 따뜻한 바다 🌊",
+        scale: "scale-120",
+      };
+    }
+    if (animalName.includes("카멜레온")) {
+      return {
+        emoji: "🦎",
+        badge: "마음대로 변하는 몸 색깔과 360도 눈",
+        habitat: "울창한 열대우림 🌴",
+        scale: "scale-120",
+      };
+    }
+    if (animalName.includes("수달")) {
+      return {
+        emoji: "🦦",
+        badge: "배 위에 조개를 올려놓고 돌로 톡톡",
+        habitat: "맑은 강과 호수 💧",
+        scale: "scale-120",
+      };
+    }
+    if (animalName.includes("부엉이") || animalName.includes("올빼미")) {
+      return {
+        emoji: "🦉",
+        badge: "고개가 270도 돌아가는 밤의 사냥꾼",
+        habitat: "달밤의 숲속 🌙",
+        scale: "scale-120",
+      };
+    }
 
     return {
       emoji: "🐾",

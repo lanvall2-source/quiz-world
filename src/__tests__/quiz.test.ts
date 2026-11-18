@@ -96,9 +96,9 @@ describe("퀴즈월드 (Quiz World) 핵심 엔진 & 로직 단위 테스트", ()
     expect(storage.stats.level).toBeGreaterThanOrEqual(1);
   });
 
-  // 9. 전체 30개 문제 데이터 무결성 검증 테스트
-  it("9. 문제 데이터 검증: 등록된 30개 문제 모두 보기가 4개이며, 정답이 반드시 보기에 포함되어야 한다", () => {
-    expect(ALL_QUESTIONS).toHaveLength(30);
+  // 9. 전체 확장 문제(60개) 데이터 무결성 검증 테스트
+  it("9. 문제 데이터 검증: 등록된 60개 문제 모두 보기가 4개이며, 정답이 반드시 보기에 포함되어야 한다", () => {
+    expect(ALL_QUESTIONS).toHaveLength(60);
     ALL_QUESTIONS.forEach((q) => {
       const isValid = validateQuestion(q);
       expect(isValid, `문제 ${q.id} 유효성 실패: ${q.question}`).toBe(true);
