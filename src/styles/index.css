@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background-color: #FFFDF5;
+  color: #1E293B;
+  touch-action: manipulation;
+}
+
+/* 터치 최적화 버튼 스타일 */
+.btn-kid-touch {
+  min-height: 52px;
+  min-width: 52px;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 통통 튀는 애니메이션 */
+@keyframes kidBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-kid-bounce {
+  animation: kidBounce 1.5s ease-in-out infinite;
+}

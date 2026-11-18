@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD028"/>
+      <stop offset="100%" stop-color="#FF7B25"/>
+    </linearGradient>
+  </defs>
+  <!-- 둥근 배경 -->
+  <rect width="100" height="100" rx="28" fill="url(#bg)"/>
+  <!-- 별 심볼 -->
+  <path d="M50 18 L59 38 L81 40 L64 55 L70 77 L50 65 L30 77 L36 55 L19 40 L41 38 Z" fill="#FFFFFF" stroke="#FFA114" stroke-width="3" stroke-linejoin="round"/>
+  <!-- 미소 눈과 입 -->
+  <circle cx="43" cy="46" r="3" fill="#334155"/>
+  <circle cx="57" cy="46" r="3" fill="#334155"/>
+  <path d="M45 54 Q50 60 55 54" stroke="#334155" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- 볼터치 -->
+  <circle cx="38" cy="52" r="2.5" fill="#FF6584" opacity="0.8"/>
+  <circle cx="62" cy="52" r="2.5" fill="#FF6584" opacity="0.8"/>
+</svg>
